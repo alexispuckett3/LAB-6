@@ -1,6 +1,7 @@
 # Lab 6 Report: Sensing and Mobility
 * Hannah Markwell
 * Alexis Puckett
+
 February 22, 2024
 
 ## Project Summary:
