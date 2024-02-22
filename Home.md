@@ -30,7 +30,7 @@ Keep the ultrasonic sensor connected to the breadboard and the RedBoard, but mov
 <p align="center">
   <img src="https://github.com/hrma240/Lab-6/blob/main/Screenshot%202024-02-22%20at%2012.48.02%20PM.png">
 </p>
-_Creative Commons Attribution ShareALike 3.0, https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/circuit-5b-remote-controlled-robot_
+(Creative Commons Attribution ShareALike 3.0, https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/circuit-5b-remote-controlled-robot#)
 
 
 ## Results:
