@@ -22,6 +22,7 @@ In our code, the minimum distanced measured is bouncing back 12ms. The distance 
 **Part Two:**
 
 _What is the minimum speed number for the motors to move forward?_
+
 Our minimum speed value was 26. The motor movement was not continuous at this speed, but they were still able to move. When we lowered the speed number to 25 and less, the motors stopped moving all together. 
 
 ## Conclusions:
