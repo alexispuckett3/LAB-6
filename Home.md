@@ -7,6 +7,13 @@ February 22, 2024
 
 ## Design/Methods:
 
+For this lab we needed:
+* A computer running Arduino IDE: MacBook Air
+* RedBoard, ultrasonic sensor, two motors, and a motor driver: SparkFun Inventor's Kit
+
+**Part One: Ultrasonic Sensor**
+
+
 ## Results:
 
 **Part One:**
