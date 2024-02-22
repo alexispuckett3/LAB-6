@@ -21,7 +21,9 @@ Start by connecting the RedBoard to the computer running Arduino IDE. Then, conn
 (Arduino, 2017, https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1)
 
 
-We then created the following code that reads the distance an object is from the sensor and displays this distance using the serial monitor. The following code establishes the pins of the trig and the echo in the RedBoard. It then sends out sound waves for 12ms from the trig in a loop. These sound waves bounce off of the object that is in front of the ultrasonic sensor and come back to the echo pin. The echo pin gets this data and the code converts it into the distance of the object away from the sensor and reads it on the monitor. 
+We then created code based on code from Arduino's project hub, that reads the distance an object is from the sensor and displays this distance using the serial monitor. The following code establishes the pins of the trig and the echo in the RedBoard. It then sends out sound waves for 12ms from the trig in a loop. These sound waves bounce off of the object that is in front of the ultrasonic sensor and come back to the echo pin. The echo pin gets this data and the code converts it into the distance of the object away from the sensor and reads it on the monitor. 
+
+insert code
 
 We tested the resolution and precision of the sensor system and observed what happened as we moved an object close to the sensor and far away from it. 
 
@@ -34,8 +36,19 @@ Keep the ultrasonic sensor connected to the breadboard and the RedBoard, but mov
 </p>
 (SparkFun, Creative Commons Attribution ShareALike 3.0, https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/circuit-5b-remote-controlled-robot#)
 
+Then, use the following code from SparkFun to move both motors. 
 
+insert code
 
+This code controls the direction of both motors by sending a message for the user to type in the direction and distance they want the motors to travel. The motors then travel in this direction and for how far the user typed in. They stop when they have reached that distance. We then edited this code so that instead of controlling the distance the motors travel, we can control the speed at which the motors travel at. To do this, we got rid of the code that tells the motors to travel a certain distance and created an integer for the speed. The user can type in this integer when prompted and the motors will travel that quickly or slowly. 
+
+insert code
+
+Finally, we created a code that incorporates the ultrasonic sensor that makes the motors stop when the distance measured by the sensor is less than 10cm. 
+
+insert code
+
+This code sets up all of the pins that the motors and ultrasonic sensor are connected to on the RedBoard. It then goes into a looped if/else statement that sends out signal from the sensor that hits the object and bounces back for the echo pin to measure the distance. If the distance is greater than 10cm, both motors turn on at a specified speed (100 in our case), otherwise, the motors stay off or turn off if the distance becomes less than 10cm. 
 
 ## Results:
 
