@@ -73,3 +73,5 @@ Our minimum speed value was 26. The motor movement was not continuous at this sp
 
 ## Conclusions:
 
+By the end of this lab, a better understanding of ultrasonic sensors was obtained and learned. On top of this, the learning about analog and digital signals as well as the functions and workings of the H-bridge was also obtained and learned. By using the Arduino systems we found the resolution to 0.01cm, which showed us how precise the ultrasonic sensor can be. We also found that the minimum measurement of the sensor is 4.08 mm, which supports the findings of how precise the ultrasonic sensor is which is 1 mm. By using the Arduino system and the H-bridge we were able to command the motors to rotate front, back, right, and left. We were also able to determine the minimum speed. If the command was any less than 26 the motos would cease to move. With that being said we were able to command differing speeds as well.   
+
