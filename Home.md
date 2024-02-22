@@ -192,6 +192,7 @@ void leftMotor(int motorSpeed)                        //function for driving the
   }
   analogWrite(PWMB, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
 }
+```
 
 Finally, we created a code that incorporates the ultrasonic sensor that makes the motors stop when the distance measured by the sensor is less than 10cm. 
 
