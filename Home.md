@@ -6,6 +6,9 @@ February 22, 2024
 
 ## Project Summary:
 
+
+The purpose of this lab is to learn about another type of sensor. In Lab 6 we are introduced to the ultrasonic sensor. An ultrasonic sensor is commonly used when it comes to detecting items and determining distance. It uses echolocation to detect objects by sending out bursts of sound and recording the time it takes to come back in order to determine the distance the object is at.  We will also be using analog and digital signals/sensors. Digital signals have a finite set of values (ex 0V to 12V), it cannot reach infinity. On the other hand, analog sensors have infinite numbers of sensors when it comes to detecting and determining values. This creates a continuous wave compared to a stepping wave that digital sensors create. Due to the fact that analog sensors cannot read digital ones a conversion needs to take place. By using the Arduino IDE system that we were introduced to last week the conversion is made. The software has a converter that can read analog sensors and convert it to digital sensors. Also, in order to control the movement of the motor, we will also be using the Arduino IDE system and an actuator. This system allows us to program the motor as well as see the results of the ultrasonic sensor and the actuator moves and controls the system. The H-Bridge will operate the motors that we will use in this lab in accordance with the Arduino. It allows us to see the interface of the motor as well as control the direction and speed of the rotation (i.e. backward and forwards).  With all of these factors in mind we will be able to simulate the workings of a car when attempting to avoid collisions. 
+
 ## Design/Methods:
 
 For this lab we needed:
