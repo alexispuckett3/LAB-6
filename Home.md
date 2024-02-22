@@ -10,7 +10,7 @@ February 22, 2024
 
 For this lab we needed:
 * A computer running Arduino IDE: MacBook Air
-* RedBoard, ultrasonic sensor, two motors, and a motor driver: SparkFun Inventor's Kit
+* RedBoard, breadboard, ultrasonic sensor, two motors, and a motor driver: SparkFun Inventor's Kit
 
 **Part One: Ultrasonic Sensor**
 
@@ -19,6 +19,18 @@ Start by connecting the RedBoard to the computer running Arduino IDE. Then, conn
   <img src="https://github.com/hrma240/Lab-6/blob/main/Screenshot%202024-02-22%20at%2012.32.10%20PM.png">
 </p>
 
+We then created the following code that reads the distance an object is from the sensor and displays this distance using the serial monitor. The following code establishes the pins of the trig and the echo in the RedBoard. It then sends out sound waves for 12ms from the trig in a loop. These sound waves bounce off of the object that is in front of the ultrasonic sensor and come back to the echo pin. The echo pin gets this data and the code converts it into the distance of the object away from the sensor and reads it on the monitor. 
+
+We tested the resolution and precision of the sensor system and observed what happened as we moved an object close to the sensor and far away from it. 
+
+**Part Two: Motors**
+
+Keep the ultrasonic sensor connected to the breadboard and the RedBoard, but move the RedBoard connections to pins 7 and 6. Connect the two motors and motor driver to the breadboard and RedBoard in the following manner.
+
+<p align="center">
+  <img src="https://github.com/hrma240/Lab-6/blob/main/Screenshot%202024-02-22%20at%2012.48.02%20PM.png">
+</p>
+_Creative Commons Attribution ShareALike 3.0, https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/circuit-5b-remote-controlled-robot#_
 
 
 ## Results:
