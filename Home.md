@@ -14,6 +14,12 @@ For this lab we needed:
 
 **Part One: Ultrasonic Sensor**
 
+Start by connecting the RedBoard to the computer running Arduino IDE. Then, connect the ultrasonic sensor to the RedBoard like in the schematic below. 
+<p align="center">
+  <img src="https://github.com/hrma240/Lab-6/blob/main/Screenshot%202024-02-22%20at%2012.32.10%20PM.png">
+</p>
+
+
 
 ## Results:
 
