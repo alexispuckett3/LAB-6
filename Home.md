@@ -24,15 +24,49 @@ Start by connecting the RedBoard to the computer running Arduino IDE. Then, conn
 (Arduino, 2017, https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1)
 
 
-We then created code based on code from Arduino's project hub, that reads the distance an object is from the sensor and displays this distance using the serial monitor. The following code establishes the pins of the trig and the echo in the RedBoard. It then sends out sound waves for 12ms from the trig in a loop. These sound waves bounce off of the object that is in front of the ultrasonic sensor and come back to the echo pin. The echo pin gets this data and the code converts it into the distance of the object away from the sensor and reads it on the monitor. 
+We then created code based on code from Arduino's project hub, that reads the distance an object is from the sensor and displays this distance using the serial monitor (Arduino, 2017, https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1). The following code establishes the pins of the trig and the echo in the RedBoard. It then sends out sound waves for 12ms from the trig in a loop. These sound waves bounce off of the object that is in front of the ultrasonic sensor and come back to the echo pin. The echo pin gets this data and the code converts it into the distance of the object away from the sensor and reads it on the monitor. 
 
-insert code
+```c++
+const int trigPin = 9;  
+const int echoPin = 10; 
+
+float duration, distance;
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+	pinMode(trigPin, OUTPUT);  
+	pinMode(echoPin, INPUT);  
+	Serial.begin(9600);  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+digitalWrite(trigPin, LOW);  
+	delayMicroseconds(2);  
+	digitalWrite(trigPin, HIGH);  
+	delayMicroseconds(10);  
+	digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+
+  distance = (duration*.0343)/2;
+
+
+  Serial.print("Distance: ");  
+	Serial.println(distance);  
+	delay(100); 
+
+}
+```
 
 We tested the resolution and precision of the sensor system and observed what happened as we moved an object close to the sensor and far away from it. 
 
 **Part Two: Motors**
 
-Keep the ultrasonic sensor connected to the breadboard and the RedBoard, but move the RedBoard connections to pins 7 and 6. Connect the two motors and motor driver to the breadboard and RedBoard in the following manner.
+Keep the ultrasonic sensor connected to the breadboard and the RedBoard, but move the RedBoard connections to pins 7 and 6. Connect the two motors and motor driver to the breadboard and RedBoard in the following manner, however, we do not need to include the switch as it is not involved in our code.
 
 <p align="center">
   <img src="https://github.com/hrma240/Lab-6/blob/main/Screenshot%202024-02-22%20at%2012.48.02%20PM.png">
@@ -193,10 +227,117 @@ void leftMotor(int motorSpeed)                        //function for driving the
   analogWrite(PWMB, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
 }
 ```
+(SparkFun, Creative Commons Attribution ShareALike 3.0, https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/circuit-5b-remote-controlled-robot#)
 
 Finally, we created a code that incorporates the ultrasonic sensor that makes the motors stop when the distance measured by the sensor is less than 10cm. 
 
-insert code
+```c++
+//the right motor will be controlled by the motor A pins on the motor driver
+const int AIN1 = 13;           //control pin 1 on the motor driver for the right motor
+const int AIN2 = 12;            //control pin 2 on the motor driver for the right motor
+const int PWMA = 11;            //speed control pin on the motor driver for the right motor
+
+//the left motor will be controlled by the motor B pins on the motor driver
+const int PWMB = 10;           //speed control pin on the motor driver for the left motor
+const int BIN2 = 9;           //control pin 2 on the motor driver for the left motor
+const int BIN1 = 8;           //control pin 1 on the motor driver for the left motor
+
+int speeds;
+
+const int driveTime = 20;      //this is the number of milliseconds that it takes the robot to drive 1 inch
+                               //it is set so that if you tell the robot to drive forward 25 units, the robot drives about 25 inches
+
+const int turnTime = 8;  
+      //this is the number of milliseconds that it takes to turn the robot 1 degree
+const int trigPin = 6;
+  const int echoPin = 7;
+  float duration, distance;
+
+
+void setup() {
+  pinMode(AIN1, OUTPUT);
+  pinMode(AIN2, OUTPUT);
+  pinMode(PWMA, OUTPUT);
+
+  pinMode(BIN1, OUTPUT);
+  pinMode(BIN2, OUTPUT);
+  pinMode(PWMB, OUTPUT);
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  Serial.begin(9600);
+//put your setup code here, to run once:
+}
+
+void loop() {
+  if (true)
+  {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = (duration*.0343)/2;
+  Serial.print("Distance: ");
+  Serial.println(distance);
+
+    if (distance > 10)
+    { rightMotor(100);                                 
+      leftMotor(100); 
+    }
+
+    else 
+    {
+      rightMotor(0);
+      leftMotor(0);  
+    }  
+  }                            
+}
+
+void rightMotor(int motorSpeed)                       //function for driving the right motor
+{
+  if (motorSpeed > 0)                                 //if the motor should drive forward (positive speed)
+  {
+    digitalWrite(AIN1, HIGH);                         //set pin 1 to high
+    digitalWrite(AIN2, LOW);                          //set pin 2 to low
+  }
+  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
+  {
+    digitalWrite(AIN1, LOW);                          //set pin 1 to low
+    digitalWrite(AIN2, HIGH);                         //set pin 2 to high
+  }
+  else                                                //if the motor should stop
+  {
+    digitalWrite(AIN1, LOW);                          //set pin 1 to low
+    digitalWrite(AIN2, LOW);                          //set pin 2 to low
+  }
+  analogWrite(PWMA, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
+}
+
+/********************************************************************************/
+void leftMotor(int motorSpeed)                        //function for driving the left motor
+{
+  if (motorSpeed > 0)                                 //if the motor should drive forward (positive speed)
+  {
+    digitalWrite(BIN1, HIGH);                         //set pin 1 to high
+    digitalWrite(BIN2, LOW);                          //set pin 2 to low
+  }
+  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
+  {
+    digitalWrite(BIN1, LOW);                          //set pin 1 to low
+    digitalWrite(BIN2, HIGH);                         //set pin 2 to high
+  }
+  else                                                //if the motor should stop
+  {
+    digitalWrite(BIN1, LOW);                          //set pin 1 to low
+    digitalWrite(BIN2, LOW);                          //set pin 2 to low
+  }
+  analogWrite(PWMB, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
+}
+
+```
 
 This code sets up all of the pins that the motors and ultrasonic sensor are connected to on the RedBoard. It then goes into a looped if/else statement that sends out signal from the sensor that hits the object and bounces back for the echo pin to measure the distance. If the distance is greater than 10cm, both motors turn on at a specified speed (100 in our case), otherwise, the motors stay off or turn off if the distance becomes less than 10cm. 
 
