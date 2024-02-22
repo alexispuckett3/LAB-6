@@ -45,7 +45,9 @@ insert code
 
 This code controls the direction of both motors by sending a message for the user to type in the direction and distance they want the motors to travel. The motors then travel in this direction and for how far the user typed in. They stop when they have reached that distance. We then edited this code so that instead of controlling the distance the motors travel, we can control the speed at which the motors travel at. To do this, we got rid of the code that tells the motors to travel a certain distance and created an integer for the speed. The user can type in this integer when prompted and the motors will travel that quickly or slowly. 
 
-insert code
+<p align="center">
+  <img src="https://github.com/hrma240/Lab-6/blob/main/motor2.ino">
+</p>
 
 Finally, we created a code that incorporates the ultrasonic sensor that makes the motors stop when the distance measured by the sensor is less than 10cm. 
 
