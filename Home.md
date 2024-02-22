@@ -39,11 +39,7 @@ Keep the ultrasonic sensor connected to the breadboard and the RedBoard, but mov
 </p>
 (SparkFun, Creative Commons Attribution ShareALike 3.0, https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/circuit-5b-remote-controlled-robot#)
 
-Then, use the following code from SparkFun to move both motors. 
-
-insert code
-
-This code controls the direction of both motors by sending a message for the user to type in the direction and distance they want the motors to travel. The motors then travel in this direction and for how far the user typed in. They stop when they have reached that distance. We then edited this code so that instead of controlling the distance the motors travel, we can control the speed at which the motors travel at. To do this, we got rid of the code that tells the motors to travel a certain distance and created an integer for the speed. The user can type in this integer when prompted and the motors will travel that quickly or slowly. 
+Then, use code from SparkFun to move both motors. This code controls the direction of both motors by sending a message for the user to type in the direction and distance they want the motors to travel. The motors then travel in this direction and for how far the user typed in. They stop when they have reached that distance. We then edited this code so that instead of controlling the distance the motors travel, we can control the speed at which the motors travel at. To do this, we got rid of the code that tells the motors to travel a certain distance and created an integer for the speed. The user can type in this integer when prompted and the motors will travel that quickly or slowly. 
 
 insert code
 
